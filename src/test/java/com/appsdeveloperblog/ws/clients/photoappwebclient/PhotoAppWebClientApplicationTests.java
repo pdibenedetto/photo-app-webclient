@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.ws.clients;
+package com.appsdeveloperblog.ws.clients.photoappwebclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
