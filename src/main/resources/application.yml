@@ -1,0 +1,24 @@
+server:
+  port: 8087
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          # Below - mywebclient, is used in the redirect uri
+          mywebclient:
+            client-id: photo-app-webclient
+            client-secret: bfaaa6ac-ab28-4d97-bd7f-ac243db02a2d
+            scope: openid, profile, roles
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8087/login/oauth2/code/mywebclient
+
+        # These keys/properties will always need to be as is, but with other values, depending on the OIDC provider
+        provider:
+          mywebclient:
+            authorization-uri: http://localhost:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/auth
+            token-uri: http://localhost:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/token
+            jwk-set-uri: http://localhost:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/certs
+            user-info-uri: http://localhost:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
